@@ -21,7 +21,7 @@ function CartSummary({ total, onClearCart, productCount }) {
         <h2>Cart Summary</h2>
         <div className="summary-details">
           <p className="item-count">Items: ${productCount}</p>
-          <p className="total-amount">Total ${total.fixed(2)}</p>
+          <p className="total-amount">Total ${total.toFixed(2)}</p>
         </div>
         <button
           onClick={handleClearCart}
