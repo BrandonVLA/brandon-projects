@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useCart } from "./hooks/useCart";
+import ProductForm from "./components/ProductForm";
+import ProductList from "./components/ProductList";
+import CartSummary from "./components/CartSummary";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { products, total, addProduct, removeProduct, clearCart } = useCart();
 
   return (
-    <>
-      <div className='flex justify-around gap-4 mb-4'>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p >
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <header className="app-header">
+        <h1>🛒 Shopping Cart</h1>
+        <p>Add products to your cart and manage your items</p>
+      </header>
+
+      <main className="app-main">
+        <section className="form-section">
+          <ProductForm onAddProduct={addProduct} />
+        </section>
+
+        <section className="cart-section">
+          <ProductList products={products} onRemoveProduct={removeProduct} />
+        </section>
+
+        <section className="summary-section">
+          <CartSummary
+            total={total}
+            onClearCart={clearCart}
+            productCount={products.length}
+          />
+        </section>
+      </main>
+    </div>
+  );
 }
 
 export default App;
