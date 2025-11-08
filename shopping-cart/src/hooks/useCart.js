@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function useCart() {
+export function useCart() {
   //Cart State
   const [products, setProducts] = useState([]);
   const [total, setTotal] = useState(0);
@@ -50,5 +50,3 @@ function useCart() {
     clearCart,
   };
 }
-
-export default useCart;

@@ -1,4 +1,4 @@
-import { useCart } from "./hooks/useCart";
+import {useCart} from "./hooks/useCart.js";
 import ProductForm from "./components/ProductForm";
 import ProductList from "./components/ProductList";
 import CartSummary from "./components/CartSummary";
