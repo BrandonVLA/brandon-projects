@@ -17,7 +17,7 @@ function ProductItem({ product, index, onRemoveProduct }) {
     <div className="product-item m-2 p-2 border-2 rounded flex justify-between items-center">
       <div className="product-info  text-center">
         <h3 className="product-name">{product.name}</h3>
-        <p className="product-price">${product.price}</p>
+        <p className="product-price text-white">${product.price}</p>
       </div>
       <button
         onClick={handleRemove}

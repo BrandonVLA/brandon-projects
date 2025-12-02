@@ -30,7 +30,7 @@ function ProductForm({ onAddProduct }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="product-form text-center m-4 p-4 border-3 rounded"
+      className="product-form text-center m-4 p-4 border-3 rounded-xl bg-white text-black"
     >
       <div className="form-group">
         <label htmlFor="productName" className="font-bold">

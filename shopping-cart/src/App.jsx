@@ -1,4 +1,4 @@
-import {useCart} from "./hooks/useCart.js";
+import { useCart } from "./hooks/useCart.js";
 import ProductForm from "./components/ProductForm";
 import ProductList from "./components/ProductList";
 import CartSummary from "./components/CartSummary";
@@ -8,10 +8,22 @@ function App() {
   const { products, total, addProduct, removeProduct, clearCart } = useCart();
 
   return (
-    <div className="app">
+    <div className="app bg-blue-500 min-h-screen p-4">
       <header className="app-header">
-        <h1 className="m-5"><span className="bg-white text-black pt-2 pb-2 pr-2  rounded-2xl"><span className="bg-orange-500 p-2 rounded-xl pr-0 text-white">🛒Shop</span>ping</span>Cart</h1>
-        <p className="font-bold underline">Add products to your cart and manage your items!</p>
+        <h1 className="m-5">
+          <span className="bg-white text-black pt-2 pb-2 rounded-xl">
+            <span className="bg-orange-500 p-2 rounded-xl pr-0 text-white">
+              🛒Shop
+            </span>
+            ping
+            <span className="bg-black text-orange-500 pt-2 pb-2 rounded-xl">
+            Cart
+          </span>
+          </span>
+        </h1>
+        <p className="font-bold underline">
+          Add products to your cart and manage your items!
+        </p>
       </header>
 
       <main className="app-main">
