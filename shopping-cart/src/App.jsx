@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>🛒 Shopping Cart</h1>
-        <p>Add products to your cart and manage your items</p>
+        <h1 className="m-5"><span className="bg-white text-black pt-2 pb-2 pr-2  rounded-2xl"><span className="bg-orange-500 p-2 rounded-xl pr-0 text-white">🛒Shop</span>ping</span>Cart</h1>
+        <p className="font-bold underline">Add products to your cart and manage your items!</p>
       </header>
 
       <main className="app-main">

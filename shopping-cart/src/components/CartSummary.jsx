@@ -16,17 +16,30 @@ function CartSummary({ total, onClearCart, productCount }) {
   };
 
   return (
-    <div className="cart-summary">
+    <div className="cart-summary summary-details m-2 p-2 ">
       <div className="summary-content">
-        <h2>Cart Summary</h2>
+        <h2 className="bg-white text-black uppercase text-xl font-bold rounded p-2 mb-2">
+          Cart Summary
+        </h2>
         <div className="summary-details">
-          <p className="item-count">Items: ${productCount}</p>
-          <p className="total-amount">Total ${total.toFixed(2)}</p>
+          <p className="item-count">Items: {productCount}</p>
+          <p className="total-amount text-green-500">
+            Total ${total.toFixed(2)}
+          </p>
         </div>
         <button
           onClick={handleClearCart}
           disabled={productCount === 0}
           className="clear-cart-button"
+          style={{
+            backgroundColor: "red",
+            color: "white",
+            padding: "10px 15px",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+            hover: { backgroundColor: "darkred" },
+          }}
         >
           Clear Cart
         </button>

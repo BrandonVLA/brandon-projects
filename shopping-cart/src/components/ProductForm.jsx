@@ -28,10 +28,16 @@ function ProductForm({ onAddProduct }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}  className="product-form">
+    <form
+      onSubmit={handleSubmit}
+      className="product-form text-center m-4 p-4 border-3 rounded"
+    >
       <div className="form-group">
-        <label htmlFor="productName">Product Name: </label>
+        <label htmlFor="productName" className="font-bold">
+          Product Name:{" "}
+        </label>
         <input
+          className="border rounded m-2 p-1 "
           id="productName"
           type="text"
           onChange={(e) => setProductName(e.target.value)}
@@ -40,9 +46,12 @@ function ProductForm({ onAddProduct }) {
         />
       </div>
 
-      <div className="form-group">
-        <label htmlFor="productPrice">Product Price: </label>
+      <div className="form-group mb-4">
+        <label htmlFor="productPrice" className="font-bold">
+          Product Price:{" "}
+        </label>
         <input
+          className="border rounded m-2 p-1"
           id="productPrice"
           type="text"
           onChange={(e) => setProductPrice(e.target.value)}
@@ -50,9 +59,22 @@ function ProductForm({ onAddProduct }) {
           required
         />
       </div>
-      <button type="submit" className="add-button">
+      <a
+        type="submit"
+        className="add-button"
+        onClick={handleSubmit}
+        style={{
+          backgroundColor: "green",
+          color: "white",
+          padding: "10px 15px",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+          hover: { backgroundColor: "darkgreen" },
+        }}
+      >
         Add to Cart
-      </button>
+      </a>
     </form>
   );
 }
