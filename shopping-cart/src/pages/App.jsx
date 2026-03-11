@@ -1,8 +1,8 @@
-import { useCart } from "./hooks/useCart.js";
-import ProductForm from "./components/ProductForm";
-import ProductList from "./components/ProductList";
-import CartSummary from "./components/CartSummary";
-import "./App.css";
+import { useCart } from "../hooks/useCart.js";
+import ProductForm from "../components/ProductForm.jsx";
+import ProductList from "../components/ProductList.jsx";
+import CartSummary from "../components/CartSummary.jsx";
+import "../App.css";
 
 function App() {
   const { products, total, addProduct, removeProduct, clearCart } = useCart();
