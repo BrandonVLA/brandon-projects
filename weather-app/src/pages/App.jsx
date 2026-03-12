@@ -7,7 +7,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const API_KEY = "7a589554bfb97caa6aacd623b8cec879";
+  const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
   const searchWeather = async (city) => {
     setLoading(true);

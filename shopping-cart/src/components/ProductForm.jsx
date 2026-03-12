@@ -53,13 +53,13 @@ function ProductForm({ onAddProduct }) {
         <input
           className="border rounded m-2 p-1"
           id="productPrice"
-          type="text"
+          type="number"
           onChange={(e) => setProductPrice(e.target.value)}
           value={productPrice}
           required
         />
       </div>
-      <a
+      <button
         type="submit"
         className="add-button"
         onClick={handleSubmit}
@@ -74,7 +74,7 @@ function ProductForm({ onAddProduct }) {
         }}
       >
         Add to Cart
-      </a>
+      </button>
     </form>
   );
 }
