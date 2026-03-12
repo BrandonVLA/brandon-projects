@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import Weather from "../components/Weather";
+import "../App.css";
+
 function App() {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -19,7 +21,7 @@ function App() {
       );
 
       if (!answer.ok) {
-        throw new Error("City not Found");
+        throw new Error("City not found. Please try another city.");
       }
       const weatherData = await answer.json();
       setWeather(weatherData);
@@ -30,25 +32,37 @@ function App() {
       setLoading(false);
     }
   };
-  return (
-    <div
-      style={{
-        maxWidth: "600px",
-        margin: "0 auto",
-        padding: "20px",
-        textAlign: "center",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "10px",
-      }}
-    >
-      <h1>Weather App☀️</h1>
-      <SearchBar onSearch={searchWeather} />
 
-      {loading && <p>Loading Weather...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {weather && <Weather weather={weather} />}
+  return (
+    <div className="app">
+      <header className="app-header">
+        <h1>🌤️ Weather Forecast System</h1>
+        <p>Get real-time weather information for any city in the world</p>
+      </header>
+
+      <main className="app-main">
+        <section className="search-section">
+          <SearchBar onSearch={searchWeather} />
+        </section>
+
+        {loading && (
+          <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6 text-center">
+            <p className="text-gray-600">Loading weather data...</p>
+          </div>
+        )}
+
+        {error && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+            <p className="text-red-700 font-medium">⚠️ {error}</p>
+          </div>
+        )}
+
+        {weather && (
+          <section className="weather-section">
+            <Weather weather={weather} />
+          </section>
+        )}
+      </main>
     </div>
   );
 }
