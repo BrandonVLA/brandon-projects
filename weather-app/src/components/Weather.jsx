@@ -3,56 +3,73 @@ function Weather({ weather }) {
 
   const { name, main, weather: weatherInfo, sys, wind, clouds } = weather;
   const description = weatherInfo[0].description.charAt(0).toUpperCase() + weatherInfo[0].description.slice(1);
+  const iconMap = {
+    clear: "☀️",
+    clouds: "☁️",
+    rain: "🌧️",
+    drizzle: "🌦️",
+    thunderstorm: "⛈️",
+    snow: "❄️",
+    mist: "🌫️",
+  };
+  const condition = weatherInfo[0].main.toLowerCase();
+  const icon = iconMap[condition] || "🌤️";
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-8">
-      <div className="mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-1">
-          {name}, {sys.country}
-        </h2>
-        <p className="text-gray-600 capitalize text-lg">{description}</p>
-      </div>
-
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8 pb-8 border-b border-gray-200">
-        <div className="text-center">
-          <p className="text-gray-600 text-sm font-medium mb-2">Temperature</p>
-          <p className="text-4xl font-bold text-blue-600">{main.temp}°C</p>
+    <div className="weather-card">
+      <div className="weather-card__hero">
+        <div>
+          <span className="eyebrow">Current conditions</span>
+          <h2>
+            {name}, {sys.country}
+          </h2>
+          <p className="weather-description">{description}</p>
         </div>
-
-        <div className="text-center">
-          <p className="text-gray-600 text-sm font-medium mb-2">Feels Like</p>
-          <p className="text-3xl font-semibold text-gray-900">{main.feels_like}°C</p>
-        </div>
-
-        <div className="text-center">
-          <p className="text-gray-600 text-sm font-medium mb-2">Humidity</p>
-          <p className="text-3xl font-semibold text-gray-900">{main.humidity}%</p>
-        </div>
-
-        <div className="text-center">
-          <p className="text-gray-600 text-sm font-medium mb-2">Min Temp</p>
-          <p className="text-2xl font-semibold text-gray-900">{main.temp_min}°C</p>
-        </div>
-
-        <div className="text-center">
-          <p className="text-gray-600 text-sm font-medium mb-2">Max Temp</p>
-          <p className="text-2xl font-semibold text-gray-900">{main.temp_max}°C</p>
-        </div>
-
-        <div className="text-center">
-          <p className="text-gray-600 text-sm font-medium mb-2">Cloud Cover</p>
-          <p className="text-2xl font-semibold text-gray-900">{clouds.all}%</p>
+        <div className="weather-icon" aria-hidden="true">
+          {icon}
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
-        <div>
-          <p className="text-gray-600 text-sm font-medium mb-2">Pressure</p>
-          <p className="text-2xl font-semibold text-gray-900">{main.pressure} hPa</p>
+      <div className="weather-grid">
+        <div className="metric-card">
+          <p className="label">Temperature</p>
+          <p className="value">{main.temp}°C</p>
         </div>
-        <div>
-          <p className="text-gray-600 text-sm font-medium mb-2">Wind Speed</p>
-          <p className="text-2xl font-semibold text-gray-900">{wind.speed} m/s</p>
+
+        <div className="metric-card">
+          <p className="label">Feels like</p>
+          <p className="value">{main.feels_like}°C</p>
+        </div>
+
+        <div className="metric-card">
+          <p className="label">Humidity</p>
+          <p className="value">{main.humidity}%</p>
+        </div>
+
+        <div className="metric-card">
+          <p className="label">Min temp</p>
+          <p className="value">{main.temp_min}°C</p>
+        </div>
+
+        <div className="metric-card">
+          <p className="label">Max temp</p>
+          <p className="value">{main.temp_max}°C</p>
+        </div>
+
+        <div className="metric-card">
+          <p className="label">Cloud cover</p>
+          <p className="value">{clouds.all}%</p>
+        </div>
+      </div>
+
+      <div className="weather-details">
+        <div className="detail-card">
+          <p className="label">Pressure</p>
+          <p className="value">{main.pressure} hPa</p>
+        </div>
+        <div className="detail-card">
+          <p className="label">Wind speed</p>
+          <p className="value">{wind.speed} m/s</p>
         </div>
       </div>
     </div>

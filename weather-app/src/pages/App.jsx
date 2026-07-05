@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import Weather from "../components/Weather";
@@ -36,8 +35,11 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>🌤️ Weather Forecast System</h1>
-        <p>Get real-time weather information for any city in the world</p>
+        <div className="app-header__content">
+          <span className="app-badge">React • API • Portfolio Project</span>
+          <h1>Weather Dashboard</h1>
+          <p>Explore live weather conditions from around the world in a polished, modern interface.</p>
+        </div>
       </header>
 
       <main className="app-main">
@@ -46,14 +48,14 @@ function App() {
         </section>
 
         {loading && (
-          <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6 text-center">
-            <p className="text-gray-600">Loading weather data...</p>
+          <div className="status-card status-card--loading">
+            <p>Loading weather data...</p>
           </div>
         )}
 
         {error && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-            <p className="text-red-700 font-medium">⚠️ {error}</p>
+          <div className="status-card status-card--error">
+            <p>⚠️ {error}</p>
           </div>
         )}
 
