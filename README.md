@@ -7,17 +7,8 @@ A curated collection of my React projects, migrated from CodePen experiments to 
 ### 🛒 [Shopping Cart App](./shopping-cart/)
 A fully functional shopping cart built with React, featuring add/remove items, quantity management, and total calculation.
 
-### 👥 [User Manager with Dark Mode](./user-manager/)
-A user management application with dark/light theme toggle, built using React Context API for state management.
-
-### 📞 [Contact List](./contact-list/)
-A responsive contact management system with add, edit, and delete functionality.
-
-### ⏱️ [Cronometer App](./cronometer/)
-A stopwatch application with start, pause, reset, and lap time features.
-
-### ✅ [Task Manager](./task-manager/)
-A todo application with local storage persistence and task filtering.
+### 🌤️ [Weather API App](./weather-app/)
+A fully functional Weather App built with React, fetching real information about weather on different cities including Temperature, Feels Like, Humidity, etc...
 
 ## 🛠️ Technologies Used
 
