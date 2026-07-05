@@ -28,52 +28,36 @@ function ProductForm({ onAddProduct }) {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="product-form text-center m-4 p-4 border-3 rounded-xl bg-white text-black"
-    >
+    <form onSubmit={handleSubmit} className="product-form">
       <div className="form-group">
-        <label htmlFor="productName" className="font-bold">
-          Product Name:{" "}
-        </label>
+        <label htmlFor="productName">Nombre del producto</label>
         <input
-          className="border rounded m-2 p-1 "
+          className="product-input"
           id="productName"
           type="text"
           onChange={(e) => setProductName(e.target.value)}
           value={productName}
+          placeholder="Ej. Auriculares inalámbricos"
           required
         />
       </div>
 
-      <div className="form-group mb-4">
-        <label htmlFor="productPrice" className="font-bold">
-          Product Price:{" "}
-        </label>
+      <div className="form-group">
+        <label htmlFor="productPrice">Precio</label>
         <input
-          className="border rounded m-2 p-1"
+          className="product-input"
           id="productPrice"
           type="number"
+          min="0"
+          step="0.01"
           onChange={(e) => setProductPrice(e.target.value)}
           value={productPrice}
+          placeholder="Ej. 49.99"
           required
         />
       </div>
-      <button
-        type="submit"
-        className="add-button"
-        onClick={handleSubmit}
-        style={{
-          backgroundColor: "green",
-          color: "white",
-          padding: "10px 15px",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-          hover: { backgroundColor: "darkgreen" },
-        }}
-      >
-        Add to Cart
+      <button type="submit" className="button-primary">
+        Agregar al carrito
       </button>
     </form>
   );

@@ -8,40 +8,35 @@ function App() {
   const { products, total, addProduct, removeProduct, clearCart } = useCart();
 
   return (
-    <div className="app bg-blue-500 min-h-screen p-4">
+    <div className="app">
       <header className="app-header">
-        <h1 className="m-5">
-          <span className="bg-white text-black pt-2 pb-2 rounded-xl">
-            <span className="bg-orange-500 p-2 rounded-xl pr-0 text-white">
-              🛒Shop
-            </span>
-            ping
-            <span className="bg-black text-orange-500 pt-2 pb-2 rounded-xl">
-            Cart
-          </span>
-          </span>
+        <div className="hero-badge">🛒 Premium Commerce</div>
+        <h1 className="hero-title">
+          Dale a tu carrito una experiencia más profesional y comercial
         </h1>
-        <p className="font-bold underline">
-          Add products to your cart and manage your items!
+        <p className="hero-copy">
+          Administra tus productos, visualiza el total y controla tu pedido con un diseño claro, moderno y elegante.
         </p>
       </header>
 
       <main className="app-main">
         <section className="form-section">
+          <h2 className="section-title">Agregar un nuevo producto</h2>
           <ProductForm onAddProduct={addProduct} />
         </section>
 
         <section className="cart-section">
+          <h2 className="section-title">Contenido del carrito</h2>
           <ProductList products={products} onRemoveProduct={removeProduct} />
         </section>
 
-        <section className="summary-section">
+        <aside className="summary-section">
           <CartSummary
             total={total}
             onClearCart={clearCart}
             productCount={products.length}
           />
-        </section>
+        </aside>
       </main>
     </div>
   );

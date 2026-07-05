@@ -6,34 +6,22 @@
  */
 
 function ProductItem({ product, index, onRemoveProduct }) {
-  /**
-   * Handle remove product button click
-   */
   const handleRemove = () => {
     onRemoveProduct(index);
   };
 
   return (
-    <div className="product-item m-2 p-2 border-2 rounded flex justify-between items-center">
-      <div className="product-info  text-center">
+    <div className="product-item">
+      <div className="product-info">
         <h3 className="product-name">{product.name}</h3>
-        <p className="product-price text-white">${product.price}</p>
+        <p className="product-price">${product.price.toFixed(2)}</p>
       </div>
       <button
         onClick={handleRemove}
-        style={{
-          backgroundColor: "red",
-          color: "white",
-          padding: "10px 15px",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-          hover: { backgroundColor: "darkred" },
-        }}
-        className="remove-button"
-        aria-label={`Remove ${product.name} from Cart`}
+        className="button-danger remove-button"
+        aria-label={`Eliminar ${product.name} del carrito`}
       >
-        Remove
+        Eliminar
       </button>
     </div>
   );
